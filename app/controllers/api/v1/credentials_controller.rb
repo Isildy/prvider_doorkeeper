@@ -1,6 +1,6 @@
 module Api::V1
   class CredentialsController < ApiController
-    doorkeeper_for :all
+    before_filter :doorkeeper_authorize!
 
     respond_to :json
 

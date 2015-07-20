@@ -1,7 +1,8 @@
 module Api::V1
   class ProfilesController < ApiController
-    doorkeeper_for :index
-    doorkeeper_for :create, :scopes => [:write]
+    before_filter :doorkeeper_authorize!
+   # doorkeeper_for :index
+   # doorkeeper_for :create, :scopes => [:write]
 
     respond_to :json
 
